@@ -1,0 +1,51 @@
+<section class="overview-grid">
+  <article class="valuation-card">
+    <p class="eyebrow">Total Valuation</p>
+    <h2>{{ totalValuation | currency : 'USD' }}</h2>
+
+    <div class="stat-row">
+      <div>
+        <p>Active SKUs</p>
+        <strong>{{ activeSkus }}</strong>
+      </div>
+      <div>
+        <p>Stock Turnover</p>
+        <strong>{{ stockTurnover }}</strong>
+      </div>
+    </div>
+  </article>
+
+  <app-add-product [categories]="categories" (productCreated)="onProductCreated($event)"></app-add-product>
+</section>
+
+<section class="inventory-panel">
+  <div class="panel-header">
+    <div>
+      <h2>Active Inventory</h2>
+      <p>{{ filteredProducts.length }} total items</p>
+    </div>
+
+    <label class="search-box" for="searchProducts">
+      <span>Search</span>
+      <input
+        id="searchProducts"
+        type="text"
+        [(ngModel)]="searchTerm"
+        placeholder="Search by product name"
+      />
+    </label>
+  </div>
+
+  <div class="card-grid" *ngIf="filteredProducts.length > 0; else noItemsFound">
+    <app-product-card
+      *ngFor="let product of filteredProducts; trackBy: trackByProductId"
+      [product]="product"
+      (deleteItem)="onDeleteProduct($event)"
+      (markSoldOut)="onMarkSoldOut($event)"
+    ></app-product-card>
+  </div>
+
+  <ng-template #noItemsFound>
+    <p class="empty-state">No products matched your search.</p>
+  </ng-template>
+</section>

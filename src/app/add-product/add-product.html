@@ -1,0 +1,90 @@
+<section id="add-product-form" class="add-product-panel">
+  <h2>Manifest New Product</h2>
+
+  <form #productForm="ngForm" (ngSubmit)="submitProduct(productForm)" novalidate>
+    <label for="productName">Product Name</label>
+    <input
+      id="productName"
+      type="text"
+      name="name"
+      [(ngModel)]="productModel.name"
+      #nameModel="ngModel"
+      required
+      minlength="3"
+      placeholder="Enter product name"
+    />
+    <p class="error" *ngIf="nameModel.touched && nameModel.invalid">
+      <span *ngIf="nameModel.errors?.['required']">Product name is required.</span>
+      <span *ngIf="nameModel.errors?.['minlength']">Name must be at least 3 characters.</span>
+    </p>
+
+    <div class="split-row">
+      <div>
+        <label for="productPrice">Price</label>
+        <input
+          id="productPrice"
+          type="number"
+          name="price"
+          [(ngModel)]="productModel.price"
+          #priceModel="ngModel"
+          min="0"
+          step="0.01"
+          required
+          placeholder="0.00"
+        />
+        <p class="error" *ngIf="priceModel.touched && priceModel.invalid">
+          <span *ngIf="priceModel.errors?.['required']">Price is required.</span>
+          <span *ngIf="priceModel.errors?.['min']">Price must be a number.</span>
+        </p>
+      </div>
+
+      <div>
+        <label for="productCategory">Category  </label>
+        <select
+          id="productCategory"
+          name="category"
+          [(ngModel)]="productModel.category"
+          #categoryModel="ngModel"
+          required
+        >
+          <option value="" disabled>Select category</option>
+          <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+        </select>
+        <p class="error" *ngIf="categoryModel.touched && categoryModel.invalid">
+          <span>Category is required.</span>
+        </p>
+      </div>
+    </div>
+
+    <label for="productStock">Stock Quantity</label>
+    <input
+      id="productStock"
+      type="number"
+      name="stockQuantity"
+      [(ngModel)]="productModel.stockQuantity"
+      #stockModel="ngModel"
+      min="0"
+      required
+      placeholder="0"
+    />
+    <p class="error" *ngIf="stockModel.touched && stockModel.invalid">
+      <span>Stock quantity is required.</span>
+    </p>
+
+    <label for="productImageUrl">Product Image URL (Optional)</label>
+    <input
+      id="productImageUrl"
+      type="url"
+      name="imageUrl"
+      [(ngModel)]="productModel.imageUrl"
+      #imageModel="ngModel"
+      placeholder="https://example.com/product-image.jpg"
+    />
+    <p class="hint">Leave this blank to use the default placeholder image.</p>
+    <p class="error" *ngIf="imageModel.touched && imageModel.invalid">
+      <span>Please enter a valid URL or leave it blank.</span>
+    </p>
+
+    <button type="submit">Register Asset</button>
+  </form>
+</section>

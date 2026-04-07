@@ -1,0 +1,65 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  border-radius: 1rem;
+  background: linear-gradient(110deg, #ffffff 0%, #f8fbff 100%);
+  border: 1px solid #e2e8f0;
+  box-shadow: 0 8px 28px rgba(15, 23, 42, 0.06);
+}
+
+.eyebrow {
+  margin: 0;
+  color: #64748b;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+h1 {
+  margin: 0.2rem 0 0;
+  font-family: 'Gill Sans', 'Trebuchet MS', sans-serif;
+  font-size: clamp(1.5rem, 2.6vw, 2rem);
+  line-height: 1.2;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.55rem;
+}
+
+.header-actions button {
+  border: 0;
+  border-radius: 0.55rem;
+  background: #e2e8f0;
+  color: #1e293b;
+  padding: 0.5rem 0.75rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.header-actions button:hover {
+  transform: translateY(-1px);
+  background: #dbeafe;
+}
+
+@media (max-width: 760px) {
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .header-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .header-actions button {
+    flex: 1;
+    min-width: 7rem;
+  }
+}

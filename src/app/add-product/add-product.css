@@ -1,0 +1,82 @@
+.add-product-panel {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.9rem;
+  padding: 1rem;
+}
+
+h2 {
+  margin: 0 0 0.9rem;
+  font-size: 1rem;
+  font-family: 'Gill Sans', 'Trebuchet MS', sans-serif;
+}
+
+form {
+  display: grid;
+  gap: 0.6rem;
+}
+
+label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #334155;
+}
+
+input,
+select {
+  width: 100%;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.45rem;
+  background: #ffffff;
+  padding: 0.48rem 0.58rem;
+}
+
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.16);
+}
+
+.split-row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.6rem;
+}
+
+.error {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #dc2626;
+  min-height: 1rem;
+}
+
+.hint {
+  margin: 0;
+  font-size: 0.72rem;
+  color: #64748b;
+}
+
+button {
+  margin-top: 0.35rem;
+  border: 0;
+  border-radius: 0.45rem;
+  background: linear-gradient(145deg, #0f172a, #1e293b);
+  color: #f8fafc;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  font-weight: 800;
+  font-size: 0.72rem;
+  padding: 0.6rem;
+  cursor: pointer;
+}
+
+button:hover {
+  background: linear-gradient(145deg, #1e293b, #334155);
+}
+
+@media (max-width: 860px) {
+  .split-row {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,140 @@
+.product-card {
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.8rem;
+  padding: 1rem;
+  display: grid;
+  gap: 0.65rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 24px rgba(15, 23, 42, 0.08);
+}
+
+.image-frame {
+  border-radius: 0.6rem;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: #e2e8f0;
+}
+
+.product-image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.out-of-stock {
+  background: #f8fafc;
+  border-color: #cbd5e1;
+  opacity: 0.85;
+}
+
+.card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.category {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #64748b;
+}
+
+.delete-button {
+  border: 0;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  cursor: pointer;
+}
+
+h3 {
+  margin: 0;
+  font-family: 'Gill Sans', 'Trebuchet MS', sans-serif;
+  font-size: 1rem;
+  line-height: 1.3;
+}
+
+.price {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.status-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.status {
+  border-radius: 999px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.warning {
+  border-radius: 999px;
+  background: #fef3c7;
+  color: #b45309;
+  padding: 0.2rem 0.55rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.stock-meter {
+  height: 0.32rem;
+  border-radius: 999px;
+  overflow: hidden;
+  background: #e2e8f0;
+}
+
+.stock-meter-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #38bdf8, #2563eb);
+}
+
+.stock-text {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.78rem;
+}
+
+.sold-out-button {
+  justify-self: start;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.45rem;
+  background: #ffffff;
+  color: #1e293b;
+  text-transform: uppercase;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+}
+
+.sold-out-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}

@@ -1,0 +1,41 @@
+<article class="product-card" [ngClass]="{ 'out-of-stock': !product.isAvailable }">
+  <div class="image-frame">
+    <img
+      class="product-image"
+      [src]="resolveImageUrl(product.imageUrl)"
+      [alt]="product.name + ' image'"
+      loading="lazy"
+      (error)="onImageError($event)"
+    />
+  </div>
+
+  <div class="card-head">
+    <p class="category">{{ product.category }}</p>
+    <button class="delete-button" type="button" (click)="requestDelete()">Delete</button>
+  </div>
+
+  <h3>{{ product.name | uppercase }}</h3>
+  <p class="price">{{ product.price | currency : 'USD' }}</p>
+
+  <div class="status-row">
+    <span class="status">{{ product.stockQuantity | stockStatus }}</span>
+    <span class="warning" *ngIf="product.stockQuantity < 5 && product.stockQuantity > 0">Low Stock</span>
+  </div>
+
+  <div class="stock-meter" aria-hidden="true">
+    <div class="stock-meter-fill" [style.width.%]="stockProgress"></div>
+  </div>
+
+  <p class="stock-text">
+    {{ product.stockQuantity > 0 ? product.stockQuantity + ' units remaining' : 'Inventory level: 0' }}
+  </p>
+
+  <button
+    class="sold-out-button"
+    type="button"
+    (click)="requestMarkSoldOut()"
+    [disabled]="!product.isAvailable"
+  >
+    Mark as Sold Out
+  </button>
+</article>
